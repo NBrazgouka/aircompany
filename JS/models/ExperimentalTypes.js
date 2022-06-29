@@ -5,4 +5,4 @@ const ExperimentalTypes   = {
     VTOL: "VTOL"
 };
 
-module.exports =  ExperimentalTypes ;
+module.exports =  ExperimentalTypes;

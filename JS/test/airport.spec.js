@@ -84,7 +84,7 @@ describe('My Test', () => {
         // if not failed;
     })
 
-    it('should check that experimentsl planes has classification level higher than unclassified', () => {
+    it('should check that experimental planes has classification level higher than unclassified', () => {
         let airport = new Airport(planes);
         let bomberMilitaryPlanes  = airport.getExperimentalPlanes ();
         let hasUnclassifiedPlanes  = false;
