@@ -1,12 +1,12 @@
 const PassengerPlane = require('./Planes/PassengerPlane');
 const MilitaryPlane = require('./Planes/MilitaryPlane');
-const MilitaryType = require('./models/militaryType');
-const experimentalPlane = require('./Planes/experimentalPlane');
+const MilitaryType = require('./models/MilitaryType');
+const ExperimentalPlane = require('./Planes/ExperimentalPlane');
 
 class Airport {
 
-     getPasPl() {
-        let pl = this.planes;
+     getPassengerPlanes() {
+        let planes = this.planes;
         var x = [];
         for (let p of this.planes) {
             if (p instanceof PassengerPlane) {x.push(p);}
@@ -17,18 +17,15 @@ class Airport {
     getMilitaryPlanes() {
         let militaryPlanes = [];
         this.planes.forEach(plane => {
-            if (plane instanceof MilitaryPlane) {//if
+            if (plane instanceof MilitaryPlane) {
                 militaryPlanes.push(plane);
             }
-            //else
-            else{}
         });
-//return
-        return militaryPlanes;
+       return militaryPlanes;
     }
 
     getPassengerPlaneWithMaxPassengersCapacity() {
-        let passengerPlanes = this.getPasPl();
+        let passengerPlanes = this.getPassengersPlanes();
         let planeWithMaxCapacity = passengerPlanes[0];
         for (let i = 0; i < passengerPlanes.length; i++) {
             if (passengerPlanes[i].getPassengersCapacity() >     planeWithMaxCapacity.getPassengersCapacity()) {
@@ -37,11 +34,6 @@ class Airport {
         }
         return planeWithMaxCapacity;
     }
-
-
-
-
-
 
 
     getTransportMilitaryPlanes(){
@@ -76,11 +68,10 @@ class Airport {
     getExperimentalPlanes() {
         let experimentalPlanes  = [];
         this.planes.forEach(plane => {
-            if (plane instanceof experimentalPlane) {//if
+            if (plane instanceof experimentalPlanes) {
                 experimentalPlanes.push(plane);
             }
         });
-//return
         return experimentalPlanes;
     }
 
@@ -91,10 +82,6 @@ class Airport {
         return this;
     }
 
-    /**
-     * Sorts by max speed
-     * @return Airport
-     */
     sortByMaxSpeed() {
         this.planes.sort((a, b) => (a.getMS() > b.getMS()) ? 1 : -1);
         return this;
@@ -108,9 +95,6 @@ class Airport {
     getPlanes() {
         return this.planes;
     }
-
-
-
 
     static print(planes) {
         return JSON.stringify(planes);
