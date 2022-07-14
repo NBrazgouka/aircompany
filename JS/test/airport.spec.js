@@ -1,6 +1,5 @@
 const assert = require('chai').assert;
 
-const Plane = require('../Planes/Plane');
 const MilitaryPlane = require('../Planes/MilitaryPlane');
 const PassengerPlane = require('../Planes/PassengerPlane');
 const Airport = require('../Airport');
@@ -33,11 +32,9 @@ describe('Airport testing', () => {
 
     let airport;
     beforeEach(() => {
-        airport = new airport(planes);
+        airport = new Airport(planes);
     });
-    afterEach(() => {
-        airport = null;
-    });
+    
 
     it('should have military Planes with transport type', () => {
         let transportMilitaryPlanes = airport.getTransportMilitaryPlanes();
@@ -96,6 +93,10 @@ describe('Airport testing', () => {
         assert.isFalse(hasUnclassifiedPlanes);
 
         }
+    });
+    
+    afterEach(() => {
+        airport = null;
     });
 
 });
